@@ -23,7 +23,7 @@ INSERT INTO student VALUES(106, "Sameer", 897654324, "CSE&BS"), (107, "Jaswanth"
 select * from student;
 
 
---Using Updata command
+--Using Update command
 UPDATE (TABLE NAME) SET (NEW DATA) WHERE (OLD DATA);  
 UPDATE student SET student_name="Jamaal" WHERE student_contact=76859421;
 
@@ -55,3 +55,18 @@ DELETE FROM student WHERE student_name="Sameer";
 
 --RENAMING THE COLUMN NAME OF THE TABLE USING ALTER COMMAND
 ALTER TABLE student RENAME COLUMN student_id TO name;
+
+--ALTERING THE TABLE NAME USING ALTER COMMAND
+ALTER TABLE student RENAME TO rgm_student;
+
+--ADDING NEW COLUMN USING ALTER COMMAND
+ALTER TABLE rgm_student ADD student_address VARCHAR(20);
+
+--UPDATING THE VALUES IN THE TABLE USING UPDATE COMMAND
+UPDATE rgm_student SET student_address="Kadapa" WHERE name=101;
+
+--MODIFYING THE DATATYPE OF THE TABLE USING ALTER COMMAND
+ALTER TABLE rgm_student MODIFY COLUMN student_address VARCHAR(50);
+
+--DROPPING THE COLUMN OF THE TABLE USING ALTER COMMAND
+ALTER TABLE rgm_student DROP COLUMN student_address;
