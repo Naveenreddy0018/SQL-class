@@ -129,3 +129,31 @@ SELECT * FROM customer WHERE CITY != "MUMBAI" OR GRADE > 200;
 SELECT * FROM customer WHERE CITY <> "MUMBAI" OR GRADE > 200;
 SELECT * FROM customer WHERE NOT CITY ="MUMBAI" OR GRADE > 200;
 
+
+create table orders(
+order_num int,purchase_amount int,order_date date,customer_id int,salesman_id int
+);
+insert into orders values(2002,1000,'2023-04-23',100,200),(2003,1100,'2023-04-25',101,201),(2003,1200,'2023-04-30',102,202),(2004,1300,'2023-04-28',103,203),
+(2005,1000,'2023-05-21',104,204);
+select * from orders;
+-- find the order details excluding the date 30-04-2023 and salesman id more than 202 or purchase amount greater than 1000
+select * from orders where not order_date='2023-04-30' and salesman_id>202 or purchase_amount>1000;
+
+create table salesman(
+salesman_id int primary key, name varchar(30),city varchar(30), commission float);
+select * from salesman;
+insert into salesman values(200,'prasanna','kurnool',0.45),(201,'keerthi','nandyal',0.230),(202,'kavya','hyd',0.32),(203,'keerthana','BGLR',0.43);
+-- To find the salesman details whose commissioms are within the range from 0.23 to 0.43
+select * from salesman where commission between 0.23 and 0.43;
+-- find the salesman details whose name startswith k letter
+select * from salesman where name like 'k%';
+-- create a new column address, insert some data in that address column and display all those address as "salesman address" in descending order
+alter table salesman add address varchar(30);
+update salesman set address='HYD' where name='prasanna';
+update salesman set address='kurnool' where name='keerthi';
+update salesman set address='kadapa' where name='kavya';
+update salesman set address='BGLR' where name='keerthana';
+select * from salesman order by address desc;
+-- create a new column address, insert some data in that address column and display all those address as "salesman address" in descending order
+select address as salesman_address from salesman order by address desc;
+
