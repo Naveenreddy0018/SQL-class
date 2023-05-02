@@ -49,3 +49,40 @@ INSERT INTO employee1 VALUES(100, "Naveen", 25, "India"), (101, "Sahil", 23, "Au
 select count(country) as country_no, country from employee1 GROUP BY country HAVING count(country) >= 2;
 
 select country, count(country) from employee1 GROUP BY country HAVING max(age) > 30;
+
+CREATE TABLE employee1 (
+	emp_id INT,
+	name VARCHAR(20),
+    age INT,
+    country VARCHAR(40)
+);
+
+
+INSERT INTO employee1 VALUES(100, "Naveen", 25, "India"), (101, "Sahil", 23, "Australia"), (102, "Prasanth", 67, "Pakistan"), (103, "Sami", 12, "England"), (104, "Shair", 89, "Pakistan"), (105, "Fouzan", 45, "India");
+
+select count(country) as country_no, country from employee1 GROUP BY country HAVING count(country) >= 2;
+
+select country, count(country) from employee1 GROUP BY country HAVING min(age) > 30;
+
+CREATE TABLE manager(
+	id INT,
+	name VARCHAR(20),
+    gender VARCHAR(20),
+	salary INT
+);
+CREATE TABLE manager1(
+	id INT,
+	name VARCHAR(20),
+    gender VARCHAR(20),
+	salary INT
+);
+
+insert into manager values(101,"Sahil","male",90000),
+(102,"Kate","female",76000),
+(103,"Naveen","male",74000),
+(104,"Rosy","female",59000),
+(105,"Prashanth","male",96000);
+
+INSERT INTO manager VALUES(106,"Naveen","male",82000), (107,"Sahil","male",80000);
+
+SELECT name, SUM(salary) as total_salary FROM manager GROUP BY name HAVING SUM(salary) > 10000 ORDER BY name;
