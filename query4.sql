@@ -86,3 +86,11 @@ insert into manager values(101,"Sahil","male",90000),
 INSERT INTO manager VALUES(106,"Naveen","male",82000), (107,"Sahil","male",80000);
 
 SELECT name, SUM(salary) as total_salary FROM manager GROUP BY name HAVING SUM(salary) > 10000 ORDER BY name;
+
+DELIMITER //
+CREATE PROCEDURE GetManagerInfo() 
+	BEGIN
+		SELECT * FROM manager;
+	END //
+    
+CALL GetManagerInfo()
