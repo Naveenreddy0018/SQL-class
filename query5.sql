@@ -89,3 +89,17 @@ select cus_name,country,order_date from customer1 right join orders1 on customer
 select cus_name,country,order_date from customer1 right join orders1 on customer1.cus_id = orders1.customer_id order by customer1.cus_name;  
 
 select cus_name,country,order_date from customer1 left join orders1 on customer1.cus_id = orders1.customer_id where customer1.cus_name like "S%" order by customer1.cus_name;
+
+SELECT * FROM CUSTOMER1;
+SELECT * FROM ORDERS1;
+
+
+-- RIGHT JOIN OF ORDERS1 AND CUSTOMER1 TABLES
+SELECT CUS_NAME,COUNTRY,ORDER_DATE FROM CUSTOMER1 RIGHT JOIN ORDERS1 ON CUSTOMER1.CUS_ID=ORDERS1.CUSTOMER_ID;
+-- FULL JOIN
+SELECT CUS_NAME,ORDERS1.ORDER_ID FROM CUSTOMER1 FULL JOIN ORDERS1 ON CUS_ID=ORDERS1.CUSTOMER_ID;
+
+CREATE TABLE TEST(
+ID INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+C2 VARCHAR(40) NOT NULL,
+C3 VARCHAR(40) DEFAULT 'SOFTWARE ENGINEER');
